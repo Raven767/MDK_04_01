@@ -1,26 +1,26 @@
 ﻿#include <iostream>
 template<typename T, typename Cmp>
 
-class CPriorQueue {
+class PriorityQueue {
 private:
     T* arr;
     size_t num;
     size_t cnt;
     Cmp    cmp;
 public:
-    CPriorQueue(void) :arr(nullptr), num(0), cnt(0) {}
-    explicit CPriorQueue(const T* _f, const T* _l) :arr(nullptr), num(0), cnt(0) {
+    PriorityQueue(void) :arr(nullptr), num(0), cnt(0) {}
+    explicit PriorityQueue(const T* _f, const T* _l) :arr(nullptr), num(0), cnt(0) {
         copy(_f, _l);
     }
 
-    CPriorQueue(CPriorQueue&& q) noexcept {
+    PriorityQueue(PriorityQueue&& q) noexcept {
         *this = std::forward<decltype(q)>(q);
     }
 
-    ~CPriorQueue() { clear(); }
+    ~PriorityQueue() { clear(); }
 
-    CPriorQueue(const CPriorQueue&) = delete;
-    CPriorQueue& operator = (const CPriorQueue&) = delete;
+    PriorityQueue(const PriorityQueue&) = delete;
+    PriorityQueue& operator = (const PriorityQueue&) = delete;
 public:
     //добавить
     void push1(const T& val) {
@@ -80,7 +80,7 @@ public:
         return (cnt == 0);
     }
 
-    CPriorQueue& operator = (CPriorQueue&& q) noexcept {
+    PriorityQueue& operator = (PriorityQueue&& q) noexcept {
         if (this != &q) {
             arr = q.arr;
             cnt = q.cnt;
@@ -154,7 +154,7 @@ template<typename T> struct lcmp {
 
 int main(void) {
     int a[] = { 3, 4, 9, 7, 8, 2, 0, 1, 6 };
-    CPriorQueue<int, hcmp<int> > pq1;
+    PriorityQueue<int, hcmp<int> > pq1;
 
     for (int i : a)
         pq1.push1(i);
@@ -165,7 +165,7 @@ int main(void) {
     }
     std::cout << std::endl;
 
-    CPriorQueue<int, lcmp<int> > pq2(std::cbegin(a), std::cend(a));
+    PriorityQueue<int, lcmp<int> > pq2(std::cbegin(a), std::cend(a));
 
     while (!pq2.empty()) {
         std::cout << pq2.top() << ' ';
@@ -174,4 +174,4 @@ int main(void) {
     std::cout << std::endl;
     //std::cin.get();
     return 0;
-}
+};
