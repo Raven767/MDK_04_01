@@ -23,16 +23,16 @@ namespace N {
         PriorityQueue(const PriorityQueue&) = delete;
         PriorityQueue& operator = (const PriorityQueue&) = delete;
     public:
-        //добавить
+        //РґРѕР±Р°РІРёС‚СЊ
         void push1(const T& val);
 
-        //вытолкнуть
+        //РІС‹С‚РѕР»РєРЅСѓС‚СЊ
         void pop(void);
 
-        //копировать массив
+        //РєРѕРїРёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ
         void copy(const T* _f, const T* _l);
 
-        //очистка
+        //РѕС‡РёСЃС‚РєР°
         void clear(void);
         T& top(void) const;
         T& top(void);
