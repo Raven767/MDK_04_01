@@ -73,14 +73,14 @@ template<typename T, typename Cmp>
 T& N::PriorityQueue<T, Cmp>::top(void) const
 {
     return arr[0];
-    // TODO: вставьте здесь оператор return
+    
 }
 
 template<typename T, typename Cmp>
 T& N::PriorityQueue<T, Cmp>::top(void)
 {
     return arr[0];
-    // TODO: вставьте здесь оператор return
+    
 }
 
 template<typename T, typename Cmp>
